@@ -29,11 +29,11 @@ export default [
       plugins: {
         react: pluginReact,
         '@typescript-eslint': pluginTs,
-        prettier: 'eslint-plugin-prettier', // Asegúrate de agregar el plugin de Prettier aquí
+        prettier: 'eslint-plugin-prettier',
       },
     },
     rules: {
-      'prettier/prettier': 'error', // Asegúrate de que Prettier se ejecute como una regla de ESLint
+      'prettier/prettier': 'error',
     },
   },
   pluginJs.configs.recommended,
@@ -43,9 +43,6 @@ export default [
     languageOptions: {
       plugins: {
         '@typescript-eslint': pluginTs,
-      },
-      rules: {
-        // Puedes agregar reglas recomendadas específicas para TypeScript aquí
       },
     },
   },
