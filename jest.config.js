@@ -1,4 +1,3 @@
-// jest.config.js
 module.exports = {
   preset: 'react-native',
   transform: {
@@ -9,7 +8,5 @@ module.exports = {
   ],
   setupFilesAfterEnv: ['./jest.setup.js'],
   moduleNameMapper: {
-    // Comentar o eliminar si no usas react-native-web
-    // '^react-native$': 'react-native-web',
   },
 };
