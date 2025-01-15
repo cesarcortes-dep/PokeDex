@@ -1,12 +1,12 @@
-import React, { useState } from "react";
-import { View, FlatList, Modal, StyleSheet, Image } from "react-native";
-import { TextInput, Button, Text, ActivityIndicator } from "react-native-paper";
-import { usePokemon } from "../context/PokemonContext";
-import { Pokemon } from "../types";
+import React, { useState } from 'react';
+import { View, FlatList, Modal, StyleSheet, Image } from 'react-native';
+import { TextInput, Button, Text, ActivityIndicator } from 'react-native-paper';
+import { usePokemon } from '../context/PokemonContext';
+import { Pokemon } from '../types';
 
 const PokeScreen = () => {
   const { pokemons, loading, error, reloadPokemons } = usePokemon();
-  const [search, setSearch] = useState<string>("");
+  const [search, setSearch] = useState<string>('');
   const [selectedPokemon, setSelectedPokemon] = useState<Pokemon | null>(null);
 
   const filteredPokemons = pokemons.filter((pokemon: Pokemon) =>
@@ -79,8 +79,8 @@ const PokeScreen = () => {
             <Text>Weight: {selectedPokemon.weight}</Text>
             <Text>Height: {selectedPokemon.height}</Text>
             <Text>
-              Types:{" "}
-              {selectedPokemon.types.map((type) => type.type.name).join(", ")}
+              Types:{' '}
+              {selectedPokemon.types.map((type) => type.type.name).join(', ')}
             </Text>
             <Button mode="contained" onPress={() => setSelectedPokemon(null)}>
               Close
@@ -107,7 +107,7 @@ const styles = StyleSheet.create({
     flex: 1,
     margin: 5,
     padding: 10,
-    alignItems: "center",
+    alignItems: 'center',
     borderRadius: 8,
   },
   pokemonImage: {
@@ -116,16 +116,16 @@ const styles = StyleSheet.create({
     marginBottom: 5,
   },
   pokemonName: {
-    fontWeight: "bold",
+    fontWeight: 'bold',
   },
   columnWrapper: {
-    justifyContent: "space-between",
+    justifyContent: 'space-between',
   },
   modalView: {
     flex: 1,
-    justifyContent: "center",
-    alignItems: "center",
-    backgroundColor: "white",
+    justifyContent: 'center',
+    alignItems: 'center',
+    backgroundColor: 'white',
   },
 });
 

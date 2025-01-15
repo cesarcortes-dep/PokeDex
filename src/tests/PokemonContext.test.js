@@ -1,7 +1,7 @@
-import React from "react";
-import { render } from "@testing-library/react-native";
-import { PokemonProvider, usePokemon } from "../context/PokemonContext";
-import { Text } from "react-native";
+import React from 'react';
+import { render } from '@testing-library/react-native';
+import { PokemonProvider, usePokemon } from '../context/PokemonContext';
+import { Text } from 'react-native';
 
 const TestComponent = () => {
   const { pokemons, loading, error } = usePokemon();
@@ -9,6 +9,8 @@ const TestComponent = () => {
     <>
       {loading ? (
         <Text>Loading...</Text>
+      ) : error ? (
+        <Text>Error: {error}</Text>
       ) : (
         <Text>{pokemons.length} Pokemon loaded</Text>
       )}
@@ -16,8 +18,8 @@ const TestComponent = () => {
   );
 };
 
-describe("PokemonContext", () => {
-  it("should provide default values", () => {
+describe('PokemonContext', () => {
+  it('should provide default values', () => {
     const { getByText } = render(
       <PokemonProvider>
         <TestComponent />

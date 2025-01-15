@@ -1,6 +1,6 @@
-import React, { createContext, useContext, useEffect, useState } from "react";
-import axios from "axios";
-import { Pokemon } from "../types";
+import React, { createContext, useContext, useEffect, useState } from 'react';
+import axios from 'axios';
+import { Pokemon } from '../types';
 
 interface PokemonContextType {
   pokemons: Pokemon[];
@@ -14,7 +14,7 @@ const PokemonContext = createContext<PokemonContextType | undefined>(undefined);
 export const usePokemon = () => {
   const context = useContext(PokemonContext);
   if (!context) {
-    throw new Error("usePokemon must be used within a PokemonProvider");
+    throw new Error('usePokemon must be used within a PokemonProvider');
   }
   return context;
 };
@@ -31,7 +31,7 @@ export const PokemonProvider: React.FC<{ children: React.ReactNode }> = ({
     setError(null);
     try {
       const response = await axios.get(
-        "https://pokeapi.co/api/v2/pokemon?limit=20"
+        'https://pokeapi.co/api/v2/pokemon?limit=20'
       );
       const pokemonsImg = await Promise.all(
         response.data.results.map(
@@ -48,8 +48,8 @@ export const PokemonProvider: React.FC<{ children: React.ReactNode }> = ({
         )
       );
       setPokemons(pokemonsImg);
-    } catch (err) {
-      setError("Error loading Pokemon");
+    } catch {
+      setError('Error loading Pokemon');
     } finally {
       setLoading(false);
     }
